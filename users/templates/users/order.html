@@ -1,0 +1,22 @@
+
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "deps/css/my_contacts_css.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4 p-3 border rounded text-center" style="background-color: #343a40; color: white;">
+        <h1 class="mt-3 pt-3"><strong>Дякуємо за ваше замовлення!</strong></h1>
+        <h6>Для його оформлення на вашу електронну пошту буде надіслано лист-підтвердження</h6>
+        <h6>При виникненні питань, зв'яжіться з нами за допомогою нижченаведених контактів:</h6>
+        <ul style="list-style-type: none; padding: 0;">
+            <li>Email: example@gmail.com</li>
+            <li>Телефон: +1234567890</li>
+        </ul>
+
+    </div>
+{% endblock %}
