@@ -22,7 +22,7 @@ def login(request):
 
             if user:
                 auth.login(request, user)
-                messages.success(request, f"{username}, Вы вошли в аккаунт")
+                messages.success(request, f"{username}, Виповнено вхід до акаунту")
 
                 if session_key:
                     Cart.objects.filter(session_key=session_key).update(user=user)
@@ -36,7 +36,7 @@ def login(request):
         form = UserLoginForm()
 
     context = {
-        'title': 'Home - Авторизация',
+        'title': 'Home - Авторизація',
         'form': form
     }
     return render(request, 'users/login.html', context)
@@ -55,13 +55,13 @@ def registration(request):
 
             if session_key:
                 Cart.objects.filter(session_key=session_key).update(user=user)
-            messages.success(request, f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт")
+            messages.success(request, f"{user.username}, Реєстрація вдала")
             return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserRegistrationForm()
 
     context = {
-        'title': 'Home - Регистрация',
+        'title': 'Home - Реєстрація',
         'form': form
     }
     return render(request, 'users/registration.html', context)
